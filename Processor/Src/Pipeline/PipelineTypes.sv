@@ -117,6 +117,8 @@ typedef struct packed // RenameStageRegPath
     OpInfo   opInfo;    // Decoded micro op.
     PC_Path pc;
     BranchPred bPred;
+    ELP_State_Type elp;
+    ELP_State_Type is_lp_expected;
 } RenameStageRegPath;
 
 typedef struct packed // DispatchStageRegPath
@@ -130,6 +132,10 @@ typedef struct packed // DispatchStageRegPath
 
     PC_Path pc;        // Program counter
     BranchPred brPred;  // Branch prediction result.
+
+    // elp state
+    ELP_State_Type elp;
+    ELP_State_Type is_lp_expected;
 
     // Renamed physical register numbers.
     PRegNumPath phySrcRegNumA;
@@ -207,6 +213,8 @@ typedef struct packed // IntegerRegisterWriteStageRegPath
 
     logic brMissPred;
     BranchResult brResult;  // Result of branch
+
+    logic lplCheckFail; // Landing Pad Label check failed
 } IntegerRegisterWriteStageRegPath;
 
 //

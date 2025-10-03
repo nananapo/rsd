@@ -301,6 +301,7 @@ module MemoryTagAccessStage(
                 ENV_MRET:           ldNextStage[i].execState = EXEC_STATE_TRAP_MRET;
                 ENV_INSN_ILLEGAL:   ldNextStage[i].execState = EXEC_STATE_FAULT_INSN_ILLEGAL;
                 ENV_INSN_VIOLATION: ldNextStage[i].execState = EXEC_STATE_FAULT_INSN_VIOLATION;
+                ENV_LPAD_FAIL:      ldNextStage[i].execState = EXEC_STATE_FAULT_LPAD;
                 default:
                     ldNextStage[i].execState = EXEC_STATE_TRAP_EBREAK;
                 endcase
